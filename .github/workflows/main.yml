@@ -25,7 +25,7 @@ jobs:
   deploy: #next job, job name
     name: Deploy
     needs: build #pre-requisite, build needs to be completed before running, jobs priority 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
