@@ -15,6 +15,10 @@
         <div id="chart">
             <Transport></Transport>
         </div>
+
+        <div id="chart">
+            <CallAPI></CallAPI>
+        </div>
         
     </div>
 </template>
@@ -24,10 +28,11 @@ import axiosExample from '../axiosExample.js'
 import PSIIndex from '../PSIIndex.js'
 import CovidChart from '../CovidChart.js'
 import Transport from '../Transport.js'
+import CallAPI from '../CallAPI.js'
 
 export default {
     components:{
-        axiosExample,PSIIndex, CovidChart, Transport
+        axiosExample,PSIIndex, CovidChart, Transport, CallAPI
     }
     
 }
