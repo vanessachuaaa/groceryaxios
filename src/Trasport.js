@@ -40,7 +40,7 @@ export default{
     fetchData : function(){
         axios.get('https://data.gov.sg/api/action/datastore_search?resource_id=552b8662-3cbc-48c0-9fbb-abdc07fb377a').then(response=>{
         this.results=response.data.result.records
-        console.log(this.results)
+        //console.log(this.results)
         for(let ele = 0; ele < this.results.length; ele++){
             if (this.results[ele].type_of_public_transport == "MRT") {
                 this.chartdata.datasets[0].data.push(this.results[ele].average_ridership)

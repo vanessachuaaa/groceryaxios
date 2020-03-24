@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "test": "testing-bt3103",
+    "default": "testing-bt3103"
+  }
+}
