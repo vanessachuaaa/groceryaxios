@@ -23,7 +23,7 @@
 import axiosExample from '../axiosExample.js'
 import PSIIndex from '../PSIIndex.js'
 import CovidChart from '../CovidChart.js'
-import Transport from '../Trasport.js'
+import Transport from '../Transport.js'
 
 export default {
     components:{
