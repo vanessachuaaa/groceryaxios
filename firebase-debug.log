@@ -1,0 +1,70 @@
+[debug] [2020-03-24T01:56:25.926Z] ----------------------------------------------------------------------
+[debug] [2020-03-24T01:56:25.949Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\vanes\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2020-03-24T01:56:25.951Z] CLI Version:   7.15.1
+[debug] [2020-03-24T01:56:25.953Z] Platform:      win32
+[debug] [2020-03-24T01:56:25.959Z] Node Version:  v12.14.1
+[debug] [2020-03-24T01:56:25.974Z] Time:          Tue Mar 24 2020 09:56:25 GMT+0800 (Singapore Standard Time)
+[debug] [2020-03-24T01:56:25.975Z] ----------------------------------------------------------------------
+[debug] [2020-03-24T01:56:25.980Z] 
+[debug] [2020-03-24T01:56:26.023Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-24T01:56:26.031Z] > authorizing via signed-in user
+[debug] [2020-03-24T01:56:26.035Z] [iam] checking project testing-bt3103 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-03-24T01:56:26.044Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/testing-bt3103:testIamPermissions  
+
+[debug] [2020-03-24T01:56:27.337Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-24T01:56:27.353Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/testing-bt3103  
+ 
+[debug] [2020-03-24T01:56:27.589Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'testing-bt3103'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-03-24T01:56:27.637Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/testing-bt3103/versions  
+
+[debug] [2020-03-24T01:56:29.490Z] <<< HTTP RESPONSE 200
+[info] i  hosting[testing-bt3103]: beginning deploy...
+[info] i  hosting[testing-bt3103]: found 19 files in dist
+[debug] [2020-03-24T01:56:29.555Z] [hosting] hash cache [ZGlzdA] not populated
+[debug] [2020-03-24T01:56:30.504Z] [hosting] hash cache [ZGlzdA] stored for 19 files
+[debug] [2020-03-24T01:56:30.507Z] [hosting][hash queue][FINAL]
+[debug] [2020-03-24T01:56:30.510Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/testing-bt3103/versions/3a742cccad2a9822:populateFiles  
+ <request body omitted>
+[info] i  hosting: adding files to version [0/19] (0%)
+[debug] [2020-03-24T01:56:32.200Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-24T01:56:32.213Z] [hosting][populate queue][FINAL]
+[debug] [2020-03-24T01:56:32.214Z] [hosting] uploads queued: 6
+[info] i  hosting: uploading new files [0/6] (0%)
+[debug] [2020-03-24T01:56:35.482Z] [hosting][upload queue][FINAL]
+[info] +  hosting[testing-bt3103]: file upload complete
+[debug] [2020-03-24T01:56:35.500Z] [hosting] deploy completed after 5997ms
+[debug] [2020-03-24T01:56:35.520Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "testing-bt3103"
+    },
+    "site": "testing-bt3103",
+    "version": "sites/testing-bt3103/versions/3a742cccad2a9822"
+  }
+]
+[info] i  hosting[testing-bt3103]: finalizing version...
+[debug] [2020-03-24T01:56:35.545Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/testing-bt3103/versions/3a742cccad2a9822?updateMask=status  
+
+[debug] [2020-03-24T01:56:37.033Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-24T01:56:37.051Z] [hosting] finalized version for testing-bt3103:
+[info] +  hosting[testing-bt3103]: version finalized
+[info] i  hosting[testing-bt3103]: releasing new version...
+[debug] [2020-03-24T01:56:37.079Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/testing-bt3103/releases?version_name=sites/testing-bt3103/versions/3a742cccad2a9822  
+
+[debug] [2020-03-24T01:56:38.551Z] <<< HTTP RESPONSE 200

@@ -38,6 +38,7 @@ export default{
     fetchData : function(){
         axios.get('https://api.data.gov.sg/v1/environment/psi').then(response=>{
         this.results=response.data.items[0].readings.psi_twenty_four_hourly
+        //index the first element of the array, and go readings
         //console.log(response.data)
         //console.log(this.results)
         for(let key in this.results){

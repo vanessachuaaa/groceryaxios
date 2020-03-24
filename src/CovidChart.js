@@ -10,31 +10,41 @@ export default{
           labels:[],
           datasets: [
             {
-              label: 'Bitcoin price in USD',
+              label: 'Number of cases',
                data:[],
               //backgroundColor:['aqua','lightgreen','red','orange'],
               borderWidth:0.5,
-              borderColor:"magenta",
-              backgroundColor:'orange',
+              borderColor:"aqua",
+              backgroundColor:'blue',
               fill:false
             }
           ]
           
         },
         options: {
-           
+            title:{
+                display:true,
+                text:'Covid-19 Cases on 2020-03-18 by Hour',
+                fontColor:'Black',
+                fontSize:15
+
+            },
+            legend:{
+                display: false
+            }
           
         }
       }),
     methods:{
     
     fetchData : function(){
-        axios.get('https://api.coindesk.com/v1/bpi/historical/close.json').then(response=>{
-        this.results=response.data.bpi //bpi is the key name in this object
+        axios.get('http://covid19.soficoop.com/country/us').then(response=>{
+        this.results=response.data.snapshots
         
-        for(let key in this.results){
-            this.chartdata.datasets[0].data.push(this.results[key])
-            this.chartdata.labels.push(key+'')
+        for(let ele = 0; ele < this.results.length; ele++){
+            this.chartdata.datasets[0].data.push(this.results[ele].cases)
+            //console.log(this.results[ele].cases)
+            this.chartdata.labels.push(this.results[ele].timestamp.slice(11, 16) + '')
             
         }
         this.renderChart(this.chartdata,this.options)
