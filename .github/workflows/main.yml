@@ -1,0 +1,41 @@
+name: Build and Deploy
+on: 
+  push: #github event: cah have multiple, see from documentation
+    branches: 
+      - master #where to push it to
+#when workflow is triggered
+jobs:
+  build: #first job, job id
+    name: Build
+    runs-on: ubuntu-latest #where the job should run - github provided environment or local environemnt
+    #documentation - we are using this os instead, other options available 
+    steps: #actions for each job, can have more than 1 step about what workflow should do
+      #access to workspace and file system 
+      - name: Checkout Repo 
+        uses: actions/checkout@master #inbuild action, checkout code from repo to a temp repo
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+  deploy: #next job, job name
+    name: Deploy
+    needs: build #pre-requisite, build needs to be completed before running, jobs priority 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
