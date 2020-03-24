@@ -1,15 +1,18 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-      - master
+on: 
+  push: #github event: cah have multiple, see from documentation
+    branches: 
+      - master #where to push it to
+#when workflow is triggered
 jobs:
-  build:
+  build: #first job, job id
     name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
+    runs-on: ubuntu-latest #where the job should run - github provided environment or local environemnt
+    #documentation - we are using this os instead, other options available 
+    steps: #actions for each job, can have more than 1 step about what workflow should do
+      #access to workspace and file system 
+      - name: Checkout Repo 
+        uses: actions/checkout@master #inbuild action, checkout code from repo to a temp repo
       - name: Install Dependencies
         run: npm install
       - name: Build
@@ -19,9 +22,9 @@ jobs:
         with:
           name: dist
           path: dist
-  deploy:
+  deploy: #next job, job name
     name: Deploy
-    needs: build
+    needs: build #pre-requisite, build needs to be completed before running, jobs priority 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
