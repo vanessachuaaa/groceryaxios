@@ -19,7 +19,7 @@ export default {
               text: ''
             },
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: true
         }
     }
   },
