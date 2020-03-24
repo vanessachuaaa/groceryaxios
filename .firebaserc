@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "bt3103-2020",
-    "week10": "testing-bt3103"
+    "week10": "testing-bt3103",
+    "default": "testing-bt3103"
   }
 }
